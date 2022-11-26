@@ -497,9 +497,41 @@ Create the Specifications Repository interface file inside the folder repositori
 touch ISpecificationsRepository.ts
 ```
 
+Create the Specifications Routes file inside the folder routes:
+```sh
+touch specifications.routes.ts
+```
+
 <h3>4.4 - Creating the Category Use Case</h3>
 
+Create the folder useCases inside the cars folder:
+```sh
+mkdir useCases
+```
+
+Create the folder createCategory inside the useCases folder:
+```sh
+mkdir createCategory
+```
+
+Create the controller file inside the folder createCategory:
+```sh
+touch createCategoryController.ts
+```
+
+- Move the CreateCategoryService.ts from the folder services to the folder createCategory and rename it to CreateCategoryUseCase.ts.
+
+Create the file index.ts inside the folder createCategory:
+```sh
+touch index.ts
+```
+
 <h3>4.5 - Refactoring the Category listing</h3>
+
+- Create the listCategories folder inside the useCases folder.
+- Create the ListCategoriesController.ts file inside the listCategories.
+- Create the file ListCategoriesUseCase.ts inside the folder listCategories.
+- Create the index.ts file inside the listCategories folder.
 
 <h3>4.6 - Knowing the Singleton Pattern</h3>
 
