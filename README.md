@@ -125,10 +125,242 @@ interface ICourse {
 <h2>2) Creating the API with NodeJS</h2>
 
 <h3>2.1 - Configutring the ts-node-dev</h3>
-
 <h3>2.2 - ESLint e Prettier</h3>
 
+Create the project folder, move to it and create the config file:
+```sh
+mkdir rentalx
+cd rentalx
+npm init -y
+```
+
+Install the VS Code extension:
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+
+Add this option to you settings.json VS Code configuration file:
+```json
+"editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+}
+```
+
+Install the dependencies:
+```sh
+npm i express
+npm i tsc-init -g
+```
+
+Install the development dependencies:
+```sh
+npm i @types/express -D
+npm i typescript -D
+npm i eslint -D
+npm i ts-node-dev -D
+```
+
+Configure the ESLint:
+```sh
+npm init @eslint/config
+```
+- Y
+- To check syntax, find problems, and enforce code style
+- JavaScript modules (import/export)
+- None of these
+- Yes
+- Node (uncheck Browser and check Node with space key)
+- Use a popular style guide
+- [Airbnb](https://github.com/airbnb/javascript) ([Standard](https://github.com/standard/standard), [Google](https://github.com/google/eslint-config-google), [XO](https://github.com/xojs/eslint-config-xo-typescript), [Standard](https://github.com/standard/eslint-config-standard-with-typescript))
+- JSON
+- yes
+- npm
+
+Create the .eslintignore file:
+```sh
+touch .eslintignore
+```
+```json
+/*.js
+node_modules
+dist
+```
+
+In the .eslintrc.json file "env" option:
+ - add "jest": true,
+ - confirm if "es2020": true,
+In the "extends", "plugins", "rules" and "settings":
+  
+```json
+{
+    "env": {
+        "es2020": true,
+        "node": true,
+				"jest": true
+    },
+    "extends": [
+        "airbnb-base",
+        "plugin:@typescript-eslint/recommended",
+		"prettier",
+		"plugin:prettier/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "@typescript-eslint",
+        "eslint-plugin-import-helpers",
+		"prettier"
+    ],
+    "rules": {
+      "camelcase": "off",
+			"import/no-unresolved": "error",
+			"@typescript-eslint/naming-convention": [
+			  "error",
+			  {
+			    "selector": "interface",
+			    "format": ["PascalCase"],
+			    "custom": {
+			      "regex": "^I[A-Z]",
+			      "match": true
+			    }
+			  }
+			],
+			"class-methods-use-this": "off",
+			"import/prefer-default-export": "off",
+			"no-shadow": "off",
+			"no-console": "off",
+			"no-useless-constructor": "off",
+			"no-empty-function": "off",
+			"lines-between-class-members": "off",
+			"import/extensions": [
+			  "error",
+			  "ignorePackages",
+			  {
+			    "ts": "never"
+			  }
+			],
+			"import-helpers/order-imports": [
+			  "warn",
+			  {
+			    "newlinesBetween": "always",
+			    "groups": ["module", "/^@shared/", ["parent", "sibling", "index"]],
+			    "alphabetize": { "order": "asc", "ignoreCase": true }
+			  }
+			],
+			"import/no-extraneous-dependencies": [
+			  "error",
+			  { "devDependencies": ["**/*.spec.js"] }
+			],
+		"prettier/prettier": "error"
+    },
+    "settings": {
+        "import/resolver": {
+            "typescript": {}
+        }
+    }
+}
+```
+
+Install the Prettier Dependencies:
+```sh
+npm i prettier eslint-config-prettier eslint-plugin-prettier -D
+```
+
+Create the Typescript configuration file (tsconfig.json):
+```sh
+npx tsc --init
+```
+
+Create the Pretier Config file:
+```sh
+touch prettier.config.js
+```
+
+```json
+module.exports = {
+    singleQuote: false,
+};
+```
+
+Create the src folder:
+```sh
+mkdir src
+cd src
+```
+
+Create the server.ts file:
+```sh
+touch server.ts
+```
+
+Add the script to the package.json to automatically convert and run .ts files:
+```json
+"scripts": {
+    "dev": "ts-node-dev src/server.ts"
+},
+```
+
+Add some flags to improve the performance:
+```json
+"scripts": {
+    "dev": "ts-node-dev --transpile-only --ignore-watch node_modules --respawn src/server.ts"
+},
+```
+
+Run the server:
+```sh
+npm run dev
+```
+
+Disable the "strict": true, inthe tsconfig.json file.
+```json
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "esModuleInterop": true, 
+    //"strict": true,
+    "skipLibCheck": true
+  }
+}
+```
+
 <h3>2.3 - Application debbuging</h3>
+
+ - In VS Code click in the Run and Debug (CTRL + SHIFT + D).
+ - Click in the "create a launch.json file" option.
+ - Select "Node.js"
+ - Change type to "node",
+ - Change "request" to "attach",
+ - remove the "program" option line,
+
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "attach",
+            "name": "Launch Program",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "outFiles": [
+                "${workspaceFolder}/**/*.js"
+            ]
+        }
+    ]
+}
+```
+
+Change the package.json script to allow the debugger to connect with the server:
+```json
+"scripts": {
+    "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn src/server.ts"
+},
+```
 
 <h3>2.4 - Creating the categories</h3>
 
