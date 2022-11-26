@@ -371,13 +371,13 @@ Create the routes folder inside src:
 mkdir routes
 ```
 
-Create the Categories route file inside routes:
-
 Categories
  - id		  uuid
  - name	  string
  - description  string
  - created_at   string
+
+Create the Categories route file inside routes:
 
 ```sh
 touch categories.routes.ts
@@ -402,7 +402,16 @@ touch Category.ts
 
 <h3>2.7 - Creating the category repository</h3>
 
+Create a repositories folder inside src:
+```sh
+mkdir repositories
+```
 
+Create the category file inside the repositories folder:
+```sh
+cd repositories
+touch CategoriesRepository.ts
+```
 
 <h3>2.8 - Listing the Categories</h3>
 
@@ -412,17 +421,81 @@ touch Category.ts
 
 <h3>3.1 - Understanding the S.O.L.I.D</h3>
 
-<h3>3.2 - Using the Singlr Responsibility Principle (SRP)</h3>
+ - S => SRP - Single Responsibility Principle
+ - O => OCP - Open-Closed Principle
+ - L => LSP - Liskov Substitution Principle
+ - I => ISP - Interface Segregation Principle
+ - D => DIP - Dependency Inversion Prnciple
 
-<h3>3.3 - Using the Liskov Swiching Principle (LSP)</h3>
+<h3>3.2 - Using the Single Responsibility Principle (SRP)</h3>
+
+Create the services folder inside src:
+```sh
+mkdir services
+```
+
+Create the category file inside the repositories folder:
+```sh
+cd sercvices
+touch CreateCategoryService.ts
+```
+
+<h3>3.3 - Using the Liskov Substitution Principle (LSP)</h3>
+
+Create the category interface file inside the repositories folder:
+```sh
+touch ICategoriesRepository.ts
+```
+
+Create the Postgress category repository file inside the repositories folder:
+```sh
+touch PostgressCategoriesRepository.ts
+```
 
 <h2>4) Application Continuation</h2>
 
-<h3>4.1 - Creatingthe specification service and spliting it in modules</h3>
+<h3>4.1 - Creating the specification service and spliting it in modules</h3>
+
+Specifications
+ - id		  uuid
+ - name	  string
+ - description  string
+ - created_at	  date
+
+Create the Specification class file inside the model folder:
+```sh
+cd model
+touch Specification.ts
+```
+
+Create the Crete Specification Service file inside the services folder:
+```sh
+cd services
+touch CreateSpecificationService.ts
+```
+
+Create the modules folder inside the src folder:
+```sh
+mkdir modules
+```
+
+Create the cars folder inside the modules folder:
+```sh
+cd modules
+mkdir cars
+```
+- Move the folders model, repositories and services into the folder cars:
 
 <h3>4.2 - Fixing the importations</h3>
 
+- Fix the categories.routes.ts
+
 <h3>4.3 - Creating the specifications repository</h3>
+
+Create the Specifications Repository interface file inside the folder repositories:
+```sh
+touch ISpecificationsRepository.ts
+```
 
 <h3>4.4 - Creating the Category Use Case</h3>
 
