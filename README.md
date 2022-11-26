@@ -6,14 +6,14 @@ Ignite NodeJS - Starting The API
 
 <h2>1) TypeScript</h2>
 
-1.1 - Introduction
+<h3>1.1 - Introduction</h3>
 
-1.2 - TypeScript Introduction
+<h3>1.2 - TypeScript Introduction</h3>
 - Open source language created by Microsoft
 - JavaScript superset
 
 
-1.3 - Creating the Project with TypeScript
+<h3>1.3 - Creating the Project with TypeScript</h3>
 
 Use the Node 16 LTS version:
 ```sh
@@ -91,7 +91,7 @@ Execute to server:
 node dist/server.js
 ```
 
-1.4 - Adding the types
+<h3>1.4 - Adding the types</h3>
 
 Create the routes.ts inside the src folder:
 ```sh
@@ -111,7 +111,7 @@ interface ICourse {
 }
 ```
 
-1.5 - Defining the mandatory parameters
+<h3>1.5 - Defining the mandatory parameters</h3>
 
 Use a ? to make the attribute as optional:
 ```ts
@@ -124,29 +124,29 @@ interface ICourse {
 
 <h2>2) Creating the API with NodeJS</h2>
 
-2.1 - Configutring the ts-node-dev
+<h3>2.1 - Configutring the ts-node-dev</h3>
 
-2.2 - ESLint e Prettier
+<h3>2.2 - ESLint e Prettier</h3>
 
-2.3 - Application debbuging
+<h3>2.3 - Application debbuging</h3>
 
-2.4 - Creating the categories
+<h3>2.4 - Creating the categories</h3>
 
-2.5 - Inserting the types for the categories
+<h3>2.5 - Inserting the types for the categories</h3>
 
-2.6 - Creating the category repository
+<h3>2.6 - Creating the category repository</h3>
 
-2.7 - Listing the Categories
+<h3>2.7 - Listing the Categories</h3>
 
-2.8 - Validating the category register
+<h3>2.8 - Validating the category register</h3>
 
 <h2>3) S.O.L.I.D</h2>
 
-3.1 - Understanding the S.O.L.I.D
+<h3>3.1 - Understanding the S.O.L.I.D</h3>
 
-3.2 - Using the Singlr Responsibility Principle (SRP)
+<h3>3.2 - Using the Singlr Responsibility Principle (SRP)</h3>
 
-3.3 - Using the Liskov Swiching Principle (LSP)
+<h3>3.3 - Using the Liskov Swiching Principle (LSP)</h3>
 
 <h2>4) Application Continuation</h2>
 
