@@ -148,6 +148,7 @@ Install the dependencies:
 ```sh
 npm i express
 npm i tsc-init -g
+npm i uuid
 ```
 
 Install the development dependencies:
@@ -156,6 +157,7 @@ npm i @types/express -D
 npm i typescript -D
 npm i eslint -D
 npm i ts-node-dev -D
+npm i @types/uuid -D
 ```
 
 Configure the ESLint:
@@ -364,13 +366,47 @@ Change the package.json script to allow the debugger to connect with the server:
 
 <h3>2.4 - Creating the categories</h3>
 
-<h3>2.5 - Inserting the types for the categories</h3>
+Create the routes folder inside src:
+```sh
+mkdir routes
+```
 
-<h3>2.6 - Creating the category repository</h3>
+Create the Categories route file inside routes:
 
-<h3>2.7 - Listing the Categories</h3>
+Categories
+ - id		  uuid
+ - name	  string
+ - description  string
+ - created_at   string
 
-<h3>2.8 - Validating the category register</h3>
+```sh
+touch categories.routes.ts
+```
+
+<h3>2.5 - Inserting ID with UUID</h3>
+
+ - [uuid](https://www.npmjs.com/package/uuid)
+
+<h3>2.6 - Inserting the types for the categories</h3>
+
+Create a model folder inside src:
+```sh
+mkdir model
+```
+
+Create the category file inside the model folder:
+```sh
+cd model
+touch Category.ts
+```
+
+<h3>2.7 - Creating the category repository</h3>
+
+
+
+<h3>2.8 - Listing the Categories</h3>
+
+<h3>2.9 - Validating the category register</h3>
 
 <h2>3) S.O.L.I.D</h2>
 
