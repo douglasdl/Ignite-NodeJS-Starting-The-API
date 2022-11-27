@@ -149,6 +149,8 @@ Install the dependencies:
 npm i express
 npm i tsc-init -g
 npm i uuid
+npm i multer
+npm i csv-parse
 ```
 
 Install the development dependencies:
@@ -158,6 +160,7 @@ npm i typescript -D
 npm i eslint -D
 npm i ts-node-dev -D
 npm i @types/uuid -D
+npm i @types/multer -D
 ```
 
 Configure the ESLint:
@@ -537,19 +540,38 @@ touch index.ts
 
 <h3>4.7 - Spliting the repositories</h3>
 
+- Create a folder implementations inside the folder repositories.
+- Move all the implementation file to this folder.
+
 <h3>4.8 - Creating the Specification Use Case</h3>
+
+- Create the folder createSpecification inside the folder useCases.
+- Create the controller file inside the folder createSpecification:
+- Move the CreateSpecificationService.ts from the folder services to the folder createSpecification and rename it to CreateSpecificationUseCase.ts.
 
 <h3>4.9 - Refactoring the routes</h3>
 
+- Create a index.ts file inside the routes folder.
+
 <h2>5) Working with Upload</h2>
 
-<h3>5.1 - Knowing the Multer</h3>
+<h3>5.1 - Knowing the [Multer](https://www.npmjs.com/package/multer)</h3>
 
 <h3>5.2 - Creating files upload</h3>
 
+- Create a tmp folder inside the rentalx folder.
+
 <h3>5.3 - Creating the use case to import the categories</h3>
 
+- Create the folder importCategory inside the folder useCases
+- Create the file ImportCategoryController.ts
+- Create the file ImportCategoryUseCase.ts
+- Create the file index.ts
+
 <h3>5.4 - Knowing the stream concept</h3>
+
+ - [Node File System](https://nodejs.org/api/fs.html)
+ - [CSV Parse](https://csv.js.org/parse/)
 
 <h3>5.5 - Hey Dev</h3>
 
